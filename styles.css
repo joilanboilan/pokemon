@@ -1,0 +1,248 @@
+
+
+@media (max-width: 415px){ /* när webbsidan visas med pixel-bredd 415 och under*/
+
+    .btn{/*styling för sökknappen */
+        color: #007bff;/*ändrar från vit pga vit mot gul bakrung är svårt att se*/
+        background-color: #f5d142;
+    }
+
+    body{
+        background-image: url("bilder/desktop-1600x900.jpg");/*https://wallpapersafari.com/w/f1X2Uu*/
+        background-attachment: fixed; /* gör så att bakgrundsbilden är still och täcer hela skärmen utan att upprepas när man börjar skrolla*/
+    }
+
+    h1{
+        color: #f5d142;
+        -webkit-text-stroke-width: 1px;        /*lägger till en border*/ /* source: https://www.geeksforgeeks.org/css-font-border/ */
+        -webkit-text-stroke-color: black;    /*lägger färgen på bordern*/
+    }
+
+    label{
+        font-size: 30px;
+        color: #f5d142;
+        -webkit-text-stroke-width: 1px;   /*lägger till en border*/
+        -webkit-text-stroke-color: black;/*lägger färgen på bordern*/
+    }
+
+    #searchCount{
+        font-size: 30px;
+        color: #f5d142;
+        -webkit-text-stroke-width: 1px;   
+        -webkit-text-stroke-color: black;
+    }
+
+    p{ /* så att det inte blir så stora mellanrum för texten inuti cardbottom*/
+        margin-bottom: 0px;
+    }
+
+    #content, #content2{ /* så att alla "pokemonkort" hamnar bredvid varann och börjar om på ny rad */
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .card{
+        width: 15%;
+        min-width: 9rem; /* ser till så att korten inte blir för små*/
+        position: relative;
+    }
+
+    .card-img{  
+        position: relative;
+    }
+
+    .cardtop{
+        margin-left: 5px;
+    }
+
+    .cardmiddle{
+        position: relative;
+        justify-content: center;
+    }
+
+    .cardbottom{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between; /* så att cardbottom 1 och 2 blir längst åt olika hållen så det ser fint ut*/
+        position: relative;
+    }
+
+    .cardbottom1{
+        margin-left: 5px;
+        position: relative;
+    }
+
+    .cardbottom2{
+        margin-left: 5px;
+        margin-right: 5px;
+        position: relative;
+    }
+}
+
+
+@media  (min-width: 415px) and (max-width: 1181px){ /* när webbsidan visas med pixel-bredd mellan 415 och 1181*/
+
+    .btn{
+        color: #007bff;
+        background-color: #f5d142;
+    }
+
+    body{
+        background-image: url("bilder/desktop-1600x900.jpg");/*https://wallpapersafari.com/w/f1X2Uu*/
+        background-attachment: fixed;
+    }
+
+    h1{
+        color: #f5d142;
+        -webkit-text-stroke-width: 1px;     /* source: https://www.geeksforgeeks.org/css-font-border/ */
+        -webkit-text-stroke-color: black;
+    }
+
+    label{
+        font-size: 30px;
+        color: #f5d142;
+        -webkit-text-stroke-width: 1px;   
+        -webkit-text-stroke-color: black;
+    }
+
+    #searchCount{
+        font-size: 30px;
+        color: #f5d142;
+        -webkit-text-stroke-width: 1px;   
+        -webkit-text-stroke-color: black;
+    }
+
+    p{ /* så att det inte blir så stora mellanrum för texten inuti cardbottom*/
+        margin-bottom: 0px;
+    }
+
+    #content, #content2{ /* så att alla "pokemonkort" hamnar bredvid varann och börjar om på ny rad */
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .card{
+        width: 15%;
+        min-width: 10rem;
+        position: relative;
+    }
+
+    .card-img{  
+        position: relative;
+    }
+
+    .cardtop{
+        margin-left: 5px;
+    }
+    .cardmiddle{
+        position: relative;
+        justify-content: center;
+    }
+
+    .cardbottom{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        position: relative;
+    }
+    .cardbottom1{
+        margin-left: 5px;
+        position: relative;
+    }
+    .cardbottom2{
+        margin-left: 5px;
+        margin-right: 5px;
+        position: relative;
+    }
+}
+
+
+
+@media (min-width: 1182px){ /* när webbsidan visas med pixel-bredd 1182 och över*/
+    
+
+    .btn{
+        color: #007bff;
+        background-color: #f5d142;
+    }
+
+    body{
+        background-color: #007bff;
+    }
+
+    h1{
+        color: #f5d142;
+        -webkit-text-stroke-width: 1px;     /* source: https://www.geeksforgeeks.org/css-font-border/ */
+        -webkit-text-stroke-color: black;
+    }
+
+    label{
+        font-size: 30px;
+        color: #f5d142;
+        -webkit-text-stroke-width: 1px;   
+        -webkit-text-stroke-color: black;
+    }
+
+    #searchCount{
+        font-size: 30px;
+        color: #f5d142;
+        -webkit-text-stroke-width: 1px;   
+        -webkit-text-stroke-color: black;
+    }
+
+    p{ /* så att det inte blir så stora mellanrum för texten inuti cardbottom*/
+        margin-bottom: 0px;
+    }
+
+    .contentDiv{
+        width:50%;
+    }
+    #content{ /* så att alla "pokemonkort" hamnar bredvid varann och börjar om på ny rad */
+        width:100%;
+        border: solid 1px #7eb2ff;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    #content2{ /* så att alla "pokemonkort" hamnar bredvid varann och börjar om på ny rad */
+        width:100%;
+        border: solid 1px #7eb2ff;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .card{
+        width: 15%;
+        min-width: 12rem;
+        position: relative;
+    }
+
+    .card-img{  
+        position: relative;
+    }
+
+    .cardtop{
+        margin-left: 5px;
+    }
+    .cardmiddle{
+        position: relative;
+        justify-content: center;
+    }
+
+    .cardbottom{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        position: relative;
+    }
+    .cardbottom1{
+        margin-left: 5px;
+        position: relative;
+    }
+    .cardbottom2{
+        margin-left: 5px;
+        margin-right: 5px;
+        position: relative;
+    }
+}
