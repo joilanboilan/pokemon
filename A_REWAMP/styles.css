@@ -1,13 +1,45 @@
 
 
-
-
-
-
 body{
     background-color: #007bff;
 }
 .container-fluid{
     padding:0;
     margin:0;
+}
+
+
+
+
+
+/* ___________CARD_________ */
+.card{
+    width: 15%;
+    min-width: 15rem;
+    position: relative;
+}
+.card-img{  
+    position: relative;
+}
+.cardtop{
+    margin-left: 5px;
+}
+.cardmiddle{
+    position: relative;
+    justify-content: center;
+}
+.cardbottom{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: relative;
+}
+.cardbottom1{
+    margin-left: 5px;
+    position: relative;
+}
+.cardbottom2{
+    margin-left: 5px;
+    margin-right: 5px;
+    position: relative;
 }

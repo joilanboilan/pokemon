@@ -6,7 +6,7 @@
 
 window.addEventListener('load', function(){
   
- 
+ let shinyCheck;
 
   //_________________Fetch_________________
   let pokeArray = [];
@@ -22,32 +22,44 @@ window.addEventListener('load', function(){
     
   }
 
+  //__________________shiny check_______________
+  
+  let checkBox = document.querySelector('#shinyCheck');
+  checkBox.addEventListener('change', function(){ /* varje gång checkboxen blir ikryssad eller "oikryssad" så kollar vi dens status med ischecked*/
+    if (checkBox.checked) {
+      shinyCheck = true;
+    }
+    else {
+      shinyCheck = false; 
+    }
+  });
+
+
+
+  //___________________search__________________
   let searchForm = this.document.querySelector('#search-form');
   searchForm.addEventListener('submit', function(e){
     e.preventDefault();
     let srcInput = document.querySelector('#search').value;
     console.log(srcInput);
 
+    createCards(srcInput,pokeArray,shinyCheck);
 
   })
 
 
 });//window load
 
-function createCards(){
+function createCards(srcInput,pokeArray,shinyCheck){
+  let content1 = document.querySelector('#content1')
+  content1.innerHTML ="";
+
   for(let i = 1; i < 1011; i++){
          
-    pokeData = pokeArray[i]; //lägger in våra objekt i arrayen pokeData på den plats som forloopens let j motsvarar 
-    /*P.S detta var mest gjort för en funktion som aldrig kom till, men tanken var att göra så så att vi i efterhand kan hämta data 
-    från specifkika objekt(pokemon) via t.ex. "pokeData[255].name" vi redan hämtat in tidigare utan att behöva hämta in och kolla igenom alla objekt igen */
-    
     let tempStr = pokeArray[i].name.toUpperCase(); //gör så vår sökning så att den kan läsa av stora och små
-    query = query.toUpperCase();                  //gör så vår sökning så att den kan läsa av stora och små
+    srcInput = srcInput.toUpperCase();                  //gör så vår sökning så att den kan läsa av stora och små
 
-    if(tempStr.includes(query)){  //kollar alla objekt och skriver ut de vars .name includerar vårt sökresultat
-
-      searchCount++; //här plussar vi på variablen som håller koll på hur många pokemon skrivs ut på skärmen, eftersom för att skrivas ut så måste de igenom denna if-sats
-      searchCountP.innerHTML = "Results: " + searchCount; //uppdaterar vår p-tagg ovanför sökfältet så att den innehåller det nya värdet av searchCount
+    if(tempStr.includes(srcInput)){  //kollar alla objekt och skriver ut de vars .name includerar vårt sökresultat
 
       //CARD
       let card = document.createElement('div');
@@ -57,7 +69,7 @@ function createCards(){
       card.style.border = "solid #f5d142 6px"; 
       card.style.borderRadius = "10px";
       card.style.margin = "10px"; //lägger till spacing runt korten
-      container.appendChild(card); //lägger in kortet i container
+      content1.appendChild(card); //lägger in kortet i contaent1
 
       //CARDBUTTON
       let button = document.createElement('button');
@@ -96,52 +108,52 @@ function createCards(){
       // CARD-TOP INNEHÅLL pokemon NAMN & ID
       let pokeName = document.createElement('p'); //gör ny p tagg
       pokeName.setAttribute('class', 'pokeName');
-      pokeName.innerHTML = '<b>'+ pokeData.name + " #" + pokeData.id +'</b>' 
+      pokeName.innerHTML = '<b>'+ pokeArray[i].name + " #" + pokeArray[i].id +'</b>' 
       cardtop.appendChild(pokeName);
 
       //CARD-MIDDLE INNEHÅLL pokemon BILD
       let cardImage = document.createElement('img');
       cardImage.className = 'card-img';
       if(shinyCheck == true){
-        cardImage.setAttribute('src', pokeData.sprites.front_shiny);
-        cardImage.setAttribute('alt', pokeData.sprites.front_shiny);
+        cardImage.setAttribute('src', pokeArray[i].sprites.front_shiny);
+        cardImage.setAttribute('alt', pokeArray[i].sprites.front_shiny);
       }
       else{
-        cardImage.setAttribute('src', pokeData.sprites.front_default);
-        cardImage.setAttribute('alt', pokeData.sprites.front_default);
+        cardImage.setAttribute('src', pokeArray[i].sprites.front_default);
+        cardImage.setAttribute('alt', pokeArray[i].sprites.front_default);
       }
       cardmiddle.appendChild(cardImage);
 
       //CARD.BOTTOM1 INNEHÅLL stats 1-3
       let stat1 = document.createElement('p'); //gör ny p tagg
-      stat1.innerHTML = '<b>'+ "HP: " + '</b>'+ pokeData.stats[0].base_stat; // ger p-taggen html-innehållet av sträng + stat-namn från api-objektet
+      stat1.innerHTML = '<b>'+ "HP: " + '</b>'+ pokeArray[i].stats[0].base_stat; // ger p-taggen html-innehållet av sträng + stat-namn från api-objektet
       cardbottom1.appendChild(stat1);
 
       let stat2 = document.createElement('p'); 
-      stat2.innerHTML = '<b>'+ " Attack: " + '</b>'+ pokeData.stats[1].base_stat; 
+      stat2.innerHTML = '<b>'+ " Attack: " + '</b>'+ pokeArray[i].stats[1].base_stat; 
       cardbottom1.appendChild(stat2);
       
       let stat3 = document.createElement('p'); 
-      stat3.innerHTML = '<b>'+ "Defense: " + '</b>'+ pokeData.stats[2].base_stat; 
+      stat3.innerHTML = '<b>'+ "Defense: " + '</b>'+ pokeArray[i].stats[2].base_stat; 
       cardbottom1.appendChild(stat3);
 
       //CARD.BOTTOM2 INNEHÅLL stats 4-6
       let stat4 = document.createElement('p'); 
-      stat4.innerHTML = '<b>'+ " Sp. Atk: " + '</b>'+ pokeData.stats[3].base_stat; 
+      stat4.innerHTML = '<b>'+ " Sp. Atk: " + '</b>'+ pokeArray[i].stats[3].base_stat; 
       cardbottom2.appendChild(stat4);
 
       let stat5 = document.createElement('p'); 
-      stat5.innerHTML = '<b>'+ "Sp. Def " + '</b>'+ pokeData.stats[4].base_stat; 
+      stat5.innerHTML = '<b>'+ "Sp. Def " + '</b>'+ pokeArray[i].stats[4].base_stat; 
       cardbottom2.appendChild(stat5);
 
       let stat6 = document.createElement('p'); 
-      stat6.innerHTML = '<b>'+ " Speed " + '</b>'+ pokeData.stats[5].base_stat; 
+      stat6.innerHTML = '<b>'+ " Speed " + '</b>'+ pokeArray[i].stats[5].base_stat; 
       cardbottom2.appendChild(stat6);
   
       /*denna funktion används i funktionen "changeCardBottomColor" & "changeCardBottomColor2"*/  
       function checkType(){ /* if it works it works funktion som returnerar en typ beroende på vad för typ api-objektet har*/
       
-        let type = pokeData.types[0].type.name;
+        let type = pokeArray[i].types[0].type.name;
         switch (type) {
           case 'normal':
             return "normal";
