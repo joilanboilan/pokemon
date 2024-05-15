@@ -106,10 +106,6 @@ function search(query, container, pokeArray) {// TODO: Rewrite to match the spec
               button.textContent = "add";
               card.appendChild(button);
 
-             
-
-
-
               //CARD-TOP div intui CARD som innehåller pokemons namn och ID
               let cardtop = document.createElement('div');
               cardtop.classList.add('cardtop');
